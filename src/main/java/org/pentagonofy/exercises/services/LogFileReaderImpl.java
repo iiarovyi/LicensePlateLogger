@@ -2,6 +2,7 @@ package org.pentagonofy.exercises.services;
 
 import org.pentagonofy.exercises.entities.Log;
 import org.pentagonofy.exercises.entities.Record;
+import org.pentagonofy.exercises.exceptions.ReaderException;
 import org.pentagonofy.exercises.factories.CoordinatesFactory;
 import org.pentagonofy.exercises.factories.RecordsFactory;
 
@@ -10,10 +11,11 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-public class LogReader {
+public class LogFileReaderImpl implements Reader {
     private Log log = new Log();
 
-    public void readFromFile(Path path) throws IOException {
+    @Override
+    public void read(Path path) throws ReaderException {
         try (BufferedReader reader = Files.newBufferedReader(path)) {
             String line;
 
@@ -46,10 +48,13 @@ public class LogReader {
                         .setBoothType(boothType)
                         .build());
             }
+        } catch (IOException e) {
+            throw new ReaderException("Unable to read data from a file: " + e.getMessage());
         }
     }
 
-    public Log getLog() throws IOException {
+    @Override
+    public Log getLog() {
         return log;
     }
 }
