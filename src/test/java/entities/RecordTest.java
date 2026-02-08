@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Date;
 
-public class LogEntryTest {
+public class RecordTest {
 
     private final Record logEntry = new Record("UHV12XT", new Date().getTime(), "ENTRY", "W", new Coordinates(90.1234f, 123.1234f));
 
