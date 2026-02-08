@@ -1,19 +1,18 @@
-package com.pentagonofy.excercises.entities;
+package org.pentagonofy.exercises.entities;
 
-import com.pentagonofy.excercises.annotations.Max;
-import com.pentagonofy.excercises.annotations.Min;
+import org.pentagonofy.exercises.annotations.Max;
+import org.pentagonofy.exercises.annotations.Min;
+
+import java.util.Objects;
 
 /**
  * Represents a set of geographic coordinates with latitude and longitude values.
- *
  * This class encapsulates the latitude and longitude coordinates
  * for a specific geographic location. It provides methods to retrieve
  * and update these values.
- *
  * Constructors:
  * - A no-argument constructor to create an uninitialized Coordinates object.
  * - A parameterized constructor to initialize the latitude and longitude directly.
- *
  * Methods:
  * - latitude(): Retrieves the current latitude value.
  * - setLatitude(float latitude): Sets the latitude value and returns the updated Coordinates object.
@@ -31,6 +30,7 @@ public class Coordinates {
     private float longitude;
 
     public Coordinates() {
+        // if ever persistence will be considered
     }
 
     public Coordinates(float latitude, float longitude) {
@@ -68,6 +68,6 @@ public class Coordinates {
 
     @Override
     public int hashCode() {
-        return Float.hashCode(latitude) + Float.hashCode(longitude);
+        return Objects.hashCode(latitude) + Objects.hashCode(longitude);
     }
 }

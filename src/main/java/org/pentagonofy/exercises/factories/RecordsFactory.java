@@ -1,8 +1,8 @@
-package com.pentagonofy.excercises.factories;
+package org.pentagonofy.exercises.factories;
 
-import com.pentagonofy.excercises.entities.Coordinates;
-import com.pentagonofy.excercises.validators.EntityValidatorImpl;
-import com.pentagonofy.excercises.entities.Record;
+import org.pentagonofy.exercises.entities.Coordinates;
+import org.pentagonofy.exercises.validators.EntityValidatorImpl;
+import org.pentagonofy.exercises.entities.Record;
 
 import java.util.List;
 
@@ -14,7 +14,11 @@ import java.util.List;
  */
 public class RecordsFactory {
 
-    public static Record createRecord(String licensePlate, float timestamp, String boothType, String direction, Coordinates coordinates) throws IllegalArgumentException {
+    private RecordsFactory() {
+        // Prevent instantiation of utility/factory class
+    }
+
+    public static Record createRecord(String licensePlate, long timestamp, Record.BoothType boothType, Record.Direction direction, Coordinates coordinates) throws IllegalArgumentException {
         Record record = new Record(licensePlate, timestamp, boothType, direction, coordinates);
         List<EntityValidatorImpl.ValidationError> errors = EntityValidatorImpl.validate(record);
         if (!errors.isEmpty()) throw new IllegalArgumentException(errors.toString());
@@ -22,28 +26,28 @@ public class RecordsFactory {
     }
 
     public static class Builder {
-        String licensePlate;
-        float timestamp;
-        String boothType;
-        String direction;
-        Coordinates coordinates;
+        private String licensePlate;
+        private long timestamp;
+        private Record.BoothType boothType;
+        private Record.Direction direction;
+        private Coordinates coordinates;
 
         public Builder setLicensePlate(String licensePlate) {
             this.licensePlate = licensePlate;
             return this;
         }
 
-        public Builder setTimestamp(float timestamp) {
+        public Builder setTimestamp(long timestamp) {
             this.timestamp = timestamp;
             return this;
         }
 
-        public Builder setBoothType(String boothType) {
+        public Builder setBoothType(Record.BoothType boothType) {
             this.boothType = boothType;
             return this;
         }
 
-        public Builder setDirection(String direction) {
+        public Builder setDirection(Record.Direction direction) {
             this.direction = direction;
             return this;
         }

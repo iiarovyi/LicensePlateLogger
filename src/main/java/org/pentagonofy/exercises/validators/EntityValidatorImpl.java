@@ -1,6 +1,6 @@
-package com.pentagonofy.excercises.validators;
+package org.pentagonofy.exercises.validators;
 
-import com.pentagonofy.excercises.annotations.Constraint;
+import org.pentagonofy.exercises.annotations.Constraint;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;

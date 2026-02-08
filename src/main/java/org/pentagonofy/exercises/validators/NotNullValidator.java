@@ -1,6 +1,6 @@
-package com.pentagonofy.excercises.validators;
+package org.pentagonofy.exercises.validators;
 
-import com.pentagonofy.excercises.annotations.NotNull;
+import org.pentagonofy.exercises.annotations.NotNull;
 
 public class NotNullValidator implements ConstraintValidator<NotNull> {
     @Override

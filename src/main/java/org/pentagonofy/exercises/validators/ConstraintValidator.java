@@ -1,4 +1,4 @@
-package com.pentagonofy.excercises.validators;
+package org.pentagonofy.exercises.validators;
 
 import java.lang.annotation.Annotation;
 

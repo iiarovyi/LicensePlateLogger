@@ -1,6 +1,6 @@
-package com.pentagonofy.excercises.annotations;
+package org.pentagonofy.exercises.annotations;
 
-import com.pentagonofy.excercises.validators.ConstraintValidator;
+import org.pentagonofy.exercises.validators.ConstraintValidator;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

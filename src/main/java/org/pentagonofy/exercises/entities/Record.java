@@ -1,16 +1,16 @@
-package com.pentagonofy.excercises.entities;
+package org.pentagonofy.exercises.entities;
 
-import com.pentagonofy.excercises.annotations.Min;
-import com.pentagonofy.excercises.annotations.NotNull;
+import org.pentagonofy.exercises.annotations.Min;
+import org.pentagonofy.exercises.annotations.NotNull;
+
+import java.util.Objects;
 
 /**
  * Represents a log entry in a vehicle toll system.
- *
  * This class encapsulates data related to a single vehicle's activity
  * in the toll system, including the vehicle's license plate, the timestamp
  * of the entry, the type of toll booth interacted with, and the direction
  * the vehicle was traveling.
- *
  * Fields:
  * - licensePlate: The license plate number of the vehicle.
  * - timestamp: The time when the event occurred, represented as a floating-point number.
@@ -24,13 +24,13 @@ public class Record {
     private String licensePlate;
 
     @Min(value = 0, message = "Timestamp must be >= {value}")
-    private float timestamp;
+    private long timestamp;
 
     @NotNull(message = "Booth type is required")
-    private String boothType;
+    private BoothType boothType;
 
     @NotNull(message = "Direction is required")
-    private String direction;
+    private Direction direction;
 
     @NotNull(message = "Coordinates are required")
     private Coordinates coordinates;
@@ -38,12 +38,20 @@ public class Record {
     public Record() {
     }
 
-    public Record(String licensePlate, float timestamp, String boothType, String direction, Coordinates coordinates) {
+    public Record(String licensePlate, long timestamp, BoothType boothType, Direction direction, Coordinates coordinates) {
         this.licensePlate = licensePlate;
         this.timestamp = timestamp;
         this.boothType = boothType;
         this.direction = direction;
         this.coordinates = coordinates;
+    }
+
+    public enum BoothType {
+        ENTRY, PASS_THROUGH, EXIT
+    }
+
+    public enum Direction {
+        N, NE, E, SE, S, SW, W, NW
     }
 
     public String licensePlate() {
@@ -55,29 +63,29 @@ public class Record {
         return this;
     }
 
-    public float timestamp() {
+    public long timestamp() {
         return timestamp;
     }
 
-    public Record setTimestamp(float timestamp) {
+    public Record setTimestamp(long timestamp) {
         this.timestamp = timestamp;
         return this;
     }
 
-    public String boothType() {
+    public BoothType boothType() {
         return boothType;
     }
 
-    public Record setBoothType(String boothType) {
+    public Record setBoothType(BoothType boothType) {
         this.boothType = boothType;
         return this;
     }
 
-    public String direction() {
+    public Direction direction() {
         return direction;
     }
 
-    public Record setDirection(String direction) {
+    public Record setDirection(Direction direction) {
         this.direction = direction;
         return this;
     }
@@ -93,16 +101,22 @@ public class Record {
 
     @Override
     public String toString() {
-        return String.format("%s, %f, %s, %s, %s", licensePlate, timestamp, boothType, direction, coordinates);
+        return String.format("%s, %d, %s, %s, %s", licensePlate, timestamp, boothType, direction, coordinates);
     }
 
     @Override
     public boolean equals(Object obj) {
-        return obj instanceof Record entry && entry.licensePlate.equals(licensePlate) && entry.timestamp == timestamp && entry.boothType.equals(boothType) && entry.direction.equals(direction) && entry.coordinates.equals(coordinates);
+        if (this == obj) return true;
+        if (!(obj instanceof Record entry)) return false;
+        return timestamp == entry.timestamp
+                && Objects.equals(licensePlate, entry.licensePlate)
+                && Objects.equals(boothType, entry.boothType)
+                && Objects.equals(direction, entry.direction)
+                && Objects.equals(coordinates, entry.coordinates);
     }
 
     @Override
     public int hashCode() {
-        return toString().hashCode();
+        return Objects.hash(licensePlate, timestamp, boothType, direction, coordinates);
     }
 }

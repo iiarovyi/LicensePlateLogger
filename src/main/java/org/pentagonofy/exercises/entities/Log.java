@@ -1,15 +1,14 @@
-package com.pentagonofy.excercises.entities;
+package org.pentagonofy.exercises.entities;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
  * Represents a log that tracks a collection of records.
- *
  * This class is designed to store, manage, and provide access to a list
  * of {@code Record} objects. Each record encapsulates detailed data
  * about a single vehicle's interaction with a toll system.
- *
  * The main functions of this class include:
  * - Adding a new record to the log.
  * - Retrieving the complete list of records.
@@ -19,7 +18,7 @@ public class Log {
     private final List<Record> records = new ArrayList<>();
 
     public List<Record> records() {
-        return records;
+        return Collections.unmodifiableList(records);
     }
 
     public void addRecord(Record record) {

@@ -1,6 +1,6 @@
-package com.pentagonofy.excercises.validators;
+package org.pentagonofy.exercises.validators;
 
-import com.pentagonofy.excercises.annotations.Max;
+import org.pentagonofy.exercises.annotations.Max;
 
 public class MaxValidator implements ConstraintValidator<Max> {
     @Override

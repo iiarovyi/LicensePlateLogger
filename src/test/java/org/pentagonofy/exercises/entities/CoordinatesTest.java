@@ -1,7 +1,7 @@
-package entities;
+package org.pentagonofy.exercises.entities;
 
-import com.pentagonofy.excercises.entities.Coordinates;
-import com.pentagonofy.excercises.validators.EntityValidatorImpl;
+import org.junit.jupiter.api.BeforeEach;
+import org.pentagonofy.exercises.validators.EntityValidatorImpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -9,7 +9,12 @@ import java.util.List;
 
 public class CoordinatesTest {
 
-    private Coordinates coordinates = new Coordinates(89.1234f, 123.4567f);
+    private Coordinates coordinates;
+
+    @BeforeEach
+    public void setUp() {
+        coordinates = new Coordinates(89.1234f, 123.4567f);
+    }
 
     @Test
     public void checkMethodsChainCorrectly() {
@@ -24,8 +29,6 @@ public class CoordinatesTest {
 
         Coordinates invalid = new Coordinates(0.0f, 181.0f);
         List<EntityValidatorImpl.ValidationError> errors = EntityValidatorImpl.validate(invalid);
-        // TODO remove
-        IO.println(errors);
         Assertions.assertFalse(errors.isEmpty());
         Assertions.assertTrue(errors.stream().anyMatch(e -> e.field().equals("longitude")));
     }
@@ -37,8 +40,6 @@ public class CoordinatesTest {
 
         Coordinates invalid = new Coordinates(0.0f, -181.0f);
         List<EntityValidatorImpl.ValidationError> errors = EntityValidatorImpl.validate(invalid);
-        // TODO remove
-        IO.println(errors);
         Assertions.assertFalse(errors.isEmpty());
         Assertions.assertTrue(errors.stream().anyMatch(e -> e.field().equals("longitude")));
     }
@@ -50,8 +51,6 @@ public class CoordinatesTest {
 
         Coordinates invalid = new Coordinates(91.0f, 0.0f);
         List<EntityValidatorImpl.ValidationError> errors = EntityValidatorImpl.validate(invalid);
-        // TODO remove
-        IO.println(errors);
         Assertions.assertFalse(errors.isEmpty());
         Assertions.assertTrue(errors.stream().anyMatch(e -> e.field().equals("latitude")));
     }
@@ -63,8 +62,6 @@ public class CoordinatesTest {
 
         Coordinates invalid = new Coordinates(-91.0f, 0.0f);
         List<EntityValidatorImpl.ValidationError> errors = EntityValidatorImpl.validate(invalid);
-        // TODO remove
-        IO.println(errors);
         Assertions.assertFalse(errors.isEmpty());
         Assertions.assertTrue(errors.stream().anyMatch(e -> e.field().equals("latitude")));
     }

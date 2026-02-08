@@ -1,6 +1,6 @@
-package com.pentagonofy.excercises.validators;
+package org.pentagonofy.exercises.validators;
 
-import com.pentagonofy.excercises.annotations.Min;
+import org.pentagonofy.exercises.annotations.Min;
 
 public class MinValidator implements ConstraintValidator<Min> {
     @Override
