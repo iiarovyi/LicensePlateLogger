@@ -1,6 +1,7 @@
 package org.pentagonofy.exercises.entities;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.pentagonofy.exercises.factories.CoordinatesFactory;
 import org.pentagonofy.exercises.validators.EntityValidatorImpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -19,7 +20,7 @@ public class CoordinatesTest {
     @Test
     public void checkMethodsChainCorrectly() {
         // Also checks formatting of output string for coordinates
-        Assertions.assertEquals("20.1234,180.0000", coordinates.setLatitude(20.1234f).setLongitude(180.0000f).toString());
+        Assertions.assertEquals("20.1234,180.0000", new CoordinatesFactory.Builder().setLatitude(20.1234f).setLongitude(180.0000f).build().toString());
     }
 
     @Test

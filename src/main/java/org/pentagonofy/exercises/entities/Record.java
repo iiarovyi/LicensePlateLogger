@@ -38,6 +38,7 @@ public class Record {
     public Record() {
     }
 
+    // TODO:IIAR this is not validated, probably should not allow constriction of objects using this. Construct via factories!
     public Record(String licensePlate, long timestamp, BoothType boothType, Direction direction, Coordinates coordinates) {
         this.licensePlate = licensePlate;
         this.timestamp = timestamp;
@@ -58,45 +59,20 @@ public class Record {
         return licensePlate;
     }
 
-    public Record setLicensePlate(String licensePlate) {
-        this.licensePlate = licensePlate;
-        return this;
-    }
-
     public long timestamp() {
         return timestamp;
-    }
-
-    public Record setTimestamp(long timestamp) {
-        this.timestamp = timestamp;
-        return this;
     }
 
     public BoothType boothType() {
         return boothType;
     }
 
-    public Record setBoothType(BoothType boothType) {
-        this.boothType = boothType;
-        return this;
-    }
-
     public Direction direction() {
         return direction;
     }
 
-    public Record setDirection(Direction direction) {
-        this.direction = direction;
-        return this;
-    }
-
     public Coordinates coordinates() {
         return coordinates;
-    }
-
-    public Record setCoordinates(Coordinates coordinates) {
-        this.coordinates = coordinates;
-        return this;
     }
 
     @Override

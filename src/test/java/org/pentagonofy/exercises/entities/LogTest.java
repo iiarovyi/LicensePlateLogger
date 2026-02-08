@@ -15,24 +15,24 @@ public class LogTest {
     @BeforeEach
     public void setUp() {
         log = new Log();
-        log.addRecord(new Record()
-                .setBoothType(Record.BoothType.ENTRY)
-                .setCoordinates(new Coordinates(45.4321f, 120.1234f))
-                .setDirection(Record.Direction.E)
-                .setTimestamp(new Date().getTime())
-                .setLicensePlate("TNT2K"));
-        log.addRecord(new Record()
-                .setBoothType(Record.BoothType.PASS)
-                .setCoordinates(new Coordinates(45.4321f, 120.144f))
-                .setDirection(Record.Direction.E)
-                .setTimestamp(new Date().getTime())
-                .setLicensePlate("TNT2K"));
-        log.addRecord(new Record()
-                .setBoothType(Record.BoothType.EXIT)
-                .setCoordinates(new Coordinates(45.4321f, 120.1254f))
-                .setDirection(Record.Direction.E)
-                .setTimestamp(new Date().getTime())
-                .setLicensePlate("TNT2K"));
+        log.addRecord(RecordsFactory.createRecord("TNT2K",
+                new Date().getTime(),
+                Record.BoothType.ENTRY,
+                Record.Direction.E,
+                CoordinatesFactory.createCoordinates(45.4321f, 120.1234f))
+        );
+        log.addRecord(RecordsFactory.createRecord("TNT2K",
+                new Date().getTime(),
+                Record.BoothType.PASS,
+                Record.Direction.E,
+                CoordinatesFactory.createCoordinates(45.4321f, 120.144f))
+        );
+        log.addRecord(RecordsFactory.createRecord("TNT2K",
+                new Date().getTime(),
+                Record.BoothType.EXIT,
+                Record.Direction.E,
+                CoordinatesFactory.createCoordinates(45.4321f, 120.1254f))
+        );
         log.addRecord(new RecordsFactory.Builder()
                 .setLicensePlate("TH234N")
                 .setBoothType(Record.BoothType.ENTRY)

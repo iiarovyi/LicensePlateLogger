@@ -30,9 +30,10 @@ public class Coordinates {
     private float longitude;
 
     public Coordinates() {
-        // if ever persistence will be considered
+        // if ever persistence will be considered it might be needed.
     }
 
+    // TODO:IIAR this is not validated. Probably should not allow to construct this object using constructor. Use factory instead.
     public Coordinates(float latitude, float longitude) {
         this.latitude = latitude;
         this.longitude = longitude;
@@ -42,18 +43,8 @@ public class Coordinates {
         return latitude;
     }
 
-    public Coordinates setLatitude(float latitude) {
-        this.latitude = latitude;
-        return this;
-    }
-
     public float longitude() {
         return longitude;
-    }
-
-    public Coordinates setLongitude(float longitude) {
-        this.longitude = longitude;
-        return this;
     }
 
     @Override
