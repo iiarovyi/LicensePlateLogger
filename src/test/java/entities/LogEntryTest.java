@@ -1,12 +1,14 @@
+package entities;
+
 import com.pentagonofy.excercises.entities.Coordinates;
-import com.pentagonofy.excercises.entities.LogEntry;
+import com.pentagonofy.excercises.entities.Record;
 import org.junit.jupiter.api.Test;
 
 import java.util.Date;
 
 public class LogEntryTest {
 
-    private LogEntry logEntry = new LogEntry("UHV12XT", new Date().getTime(), "ENTRY", "W", new Coordinates(90.1234f, 123.1234f));
+    private final Record logEntry = new Record("UHV12XT", new Date().getTime(), "ENTRY", "W", new Coordinates(90.1234f, 123.1234f));
 
     @Test
     public void checkClassPropertiesAvailable () throws AssertionError{
@@ -20,6 +22,6 @@ public class LogEntryTest {
 
     @Test
     public void checkCorrectnessOfEqualsAndHashCode () throws AssertionError {
-        assert logEntry.equals(new LogEntry("UHV12XT", new Date().getTime(), "ENTRY", "W", new Coordinates(90.1234f, 123.1234f)));
+        assert logEntry.equals(new Record("UHV12XT", new Date().getTime(), "ENTRY", "W", new Coordinates(90.1234f, 123.1234f)));
     }
 }

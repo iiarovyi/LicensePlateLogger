@@ -1,3 +1,5 @@
+package entities;
+
 import com.pentagonofy.excercises.entities.Coordinates;
 import com.pentagonofy.excercises.validators.EntityValidatorImpl;
 import org.junit.jupiter.api.Assertions;

@@ -19,7 +19,7 @@ import com.pentagonofy.excercises.annotations.NotNull;
  * - coordinates: The geographic coordinates of the vehicle's location at the time of passing the booth.
  */
 
-public class LogEntry {
+public class Record {
     @NotNull(message = "License plate is required")
     private String licensePlate;
 
@@ -35,10 +35,10 @@ public class LogEntry {
     @NotNull(message = "Coordinates are required")
     private Coordinates coordinates;
 
-    public LogEntry() {
+    public Record() {
     }
 
-    public LogEntry (String licensePlate, float timestamp, String boothType, String direction, Coordinates coordinates) {
+    public Record(String licensePlate, float timestamp, String boothType, String direction, Coordinates coordinates) {
         this.licensePlate = licensePlate;
         this.timestamp = timestamp;
         this.boothType = boothType;
@@ -50,7 +50,7 @@ public class LogEntry {
         return licensePlate;
     }
 
-    public LogEntry setLicensePlate(String licensePlate) {
+    public Record setLicensePlate(String licensePlate) {
         this.licensePlate = licensePlate;
         return this;
     }
@@ -59,7 +59,7 @@ public class LogEntry {
         return timestamp;
     }
 
-    public LogEntry setTimestamp(float timestamp) {
+    public Record setTimestamp(float timestamp) {
         this.timestamp = timestamp;
         return this;
     }
@@ -68,7 +68,7 @@ public class LogEntry {
         return boothType;
     }
 
-    public LogEntry setBoothType(String boothType) {
+    public Record setBoothType(String boothType) {
         this.boothType = boothType;
         return this;
     }
@@ -77,7 +77,7 @@ public class LogEntry {
         return direction;
     }
 
-    public LogEntry setDirection(String direction) {
+    public Record setDirection(String direction) {
         this.direction = direction;
         return this;
     }
@@ -86,7 +86,7 @@ public class LogEntry {
         return coordinates;
     }
 
-    public LogEntry setCoordinates(Coordinates coordinates) {
+    public Record setCoordinates(Coordinates coordinates) {
         this.coordinates = coordinates;
         return this;
     }
@@ -98,7 +98,7 @@ public class LogEntry {
 
     @Override
     public boolean equals(Object obj) {
-        return obj instanceof LogEntry entry && entry.licensePlate.equals(licensePlate) && entry.timestamp == timestamp && entry.boothType.equals(boothType) && entry.direction.equals(direction) && entry.coordinates.equals(coordinates);
+        return obj instanceof Record entry && entry.licensePlate.equals(licensePlate) && entry.timestamp == timestamp && entry.boothType.equals(boothType) && entry.direction.equals(direction) && entry.coordinates.equals(coordinates);
     }
 
     @Override
