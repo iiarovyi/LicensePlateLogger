@@ -58,7 +58,7 @@ public class Coordinates {
 
     @Override
     public String toString() {
-        return String.format("[%.4f,%.4f]", latitude, longitude);
+        return String.format("%.4f,%.4f", latitude, longitude);
     }
 
     @Override

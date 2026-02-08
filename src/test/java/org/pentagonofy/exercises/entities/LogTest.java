@@ -22,7 +22,7 @@ public class LogTest {
                 .setTimestamp(new Date().getTime())
                 .setLicensePlate("TNT2K"));
         log.addRecord(new Record()
-                .setBoothType(Record.BoothType.PASS_THROUGH)
+                .setBoothType(Record.BoothType.PASS)
                 .setCoordinates(new Coordinates(45.4321f, 120.144f))
                 .setDirection(Record.Direction.E)
                 .setTimestamp(new Date().getTime())

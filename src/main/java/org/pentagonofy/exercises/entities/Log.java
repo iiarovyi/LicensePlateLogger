@@ -17,6 +17,9 @@ import java.util.List;
 public class Log {
     private final List<Record> records = new ArrayList<>();
 
+    public Log() {
+    }
+
     public List<Record> records() {
         return Collections.unmodifiableList(records);
     }
@@ -27,5 +30,15 @@ public class Log {
 
     public int size() {
         return records.size();
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (Record record : records) {
+            sb.append(record.toString());
+            sb.append("\n");
+        }
+        return sb.toString();
     }
 }

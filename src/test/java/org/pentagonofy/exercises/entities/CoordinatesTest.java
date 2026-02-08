@@ -19,7 +19,7 @@ public class CoordinatesTest {
     @Test
     public void checkMethodsChainCorrectly() {
         // Also checks formatting of output string for coordinates
-        Assertions.assertEquals("[20.1234,180.0000]", coordinates.setLatitude(20.1234f).setLongitude(180.0000f).toString());
+        Assertions.assertEquals("20.1234,180.0000", coordinates.setLatitude(20.1234f).setLongitude(180.0000f).toString());
     }
 
     @Test

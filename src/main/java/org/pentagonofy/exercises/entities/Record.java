@@ -47,7 +47,7 @@ public class Record {
     }
 
     public enum BoothType {
-        ENTRY, PASS_THROUGH, EXIT
+        ENTRY, PASS, EXIT
     }
 
     public enum Direction {
@@ -101,7 +101,7 @@ public class Record {
 
     @Override
     public String toString() {
-        return String.format("%s, %d, %s, %s, %s", licensePlate, timestamp, boothType, direction, coordinates);
+        return String.format("%d  %s  %s  %s  %s", timestamp, licensePlate, boothType, coordinates, direction);
     }
 
     @Override
