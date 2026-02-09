@@ -43,7 +43,7 @@ public class H2ReaderImpl implements Reader {
                         .setBoothType(Record.BoothType.valueOf(boothType))
                         .setCoordinates(new CoordinatesFactory.Builder()
                                 .setLongitude((float) longitude)
-                                .setLatitude((float)latitude)
+                                .setLatitude((float) latitude)
                                 .build())
                         .setDirection(Record.Direction.valueOf(direction))
                         .build());
