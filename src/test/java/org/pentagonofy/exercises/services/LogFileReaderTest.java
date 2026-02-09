@@ -17,8 +17,6 @@ public class LogFileReaderTest {
         logReader = new LogFileReaderImpl();
         logReader.read(Path.of("src/main/resources/smallLog.log"));
         Log log = logReader.getLog();
-        // TODO:IIAR remove
-        IO.println(log.toString());
         Assertions.assertEquals(6, log.size());
         Assertions.assertEquals(Record.BoothType.ENTRY, log.records().getFirst().boothType());
     }
@@ -28,8 +26,6 @@ public class LogFileReaderTest {
         logReader = new H2ReaderImpl();
         logReader.read(Path.of("jdbc:h2:./data/LicencePlateTracker-db"));
         Log log = logReader.getLog();
-        // TODO:IIAR remove
-        IO.println(log.toString());
         Assertions.assertEquals(6, log.size());
         Assertions.assertEquals(Record.BoothType.ENTRY, log.records().getFirst().boothType());
     }

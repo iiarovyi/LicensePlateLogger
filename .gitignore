@@ -1,2 +1,3 @@
 target/
 /.idea/
+/data/LicencePlateTracker-db.trace.db
